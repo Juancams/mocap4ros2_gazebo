@@ -140,7 +140,7 @@ void GazeboRosMocapPrivate::handleCreateRigidBody(
   const std::shared_ptr<mocap4r2_msgs::srv::CreateRigidBody::Response> response)
 {
   (void)request_header;
-  
+
   RCLCPP_INFO(get_logger(), "Creating rigid body [%s]", request->rigid_body_name.c_str());
   rigid_body_markers_[request->rigid_body_name] = request->markers;
   rigid_body_orientation[request->rigid_body_name] = request->link_parent;
@@ -362,9 +362,9 @@ void GazeboRosMocap::OnUpdate()
     }
 
     geometry_msgs::msg::Point centroid;
-    centroid.x = rigid_body_pose.x / rb.markers.size();;
-    centroid.y = rigid_body_pose.y / rb.markers.size();;
-    centroid.z = rigid_body_pose.z / rb.markers.size();;
+    centroid.x = rigid_body_pose.x / rb.markers.size();
+    centroid.y = rigid_body_pose.y / rb.markers.size();
+    centroid.z = rigid_body_pose.z / rb.markers.size();
 
     rb.pose.position = centroid;
 
